@@ -4,14 +4,19 @@ void spiral(int n,int rl,int rh,int cl,int ch,int arr[][n])
 {
     if(rl>rh || cl>ch)
         return;
+    printf("rl: %d  rh: %d  cl: %d  ch: %d  \n",rl,rh,cl,ch);
     spiral(n,rl+1,rh-1,cl+1,ch-1,arr);
     static int i,j;
     if(j==0)
         j=ch;
-    for(i=rl;i<rh;i++)
+    if(ch!=cl)
     {
-        printf("%d ",arr[j][i]);
+        for(i=rl;i<rh;i++)
+        {
+            printf("%d ",arr[j][i]);
+        }
     }
+
     for(j=ch;j>cl;j--)
     {
         printf("%d ",arr[j][i]);
@@ -35,7 +40,7 @@ void spiral(int n,int rl,int rh,int cl,int ch,int arr[][n])
 
 int main()
 {
-    int m=4,n=5,count=0,i,j;
+    int m=5,n=3,count=0,i,j;
     int arr[m][n];
     for(i=0;i<m;i++)
     {
